@@ -1,5 +1,5 @@
-import ListingsGrid from './ListingCards';
-import '../Styles/Listingcards.css'; // Import the CSS file
+import ListingsGrid from './OutDoor_Cards';
+import '../Styles/List.css'; // Import the CSS file
 
 
 const Home = ({category}) => { 
