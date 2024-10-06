@@ -1,0 +1,85 @@
+/* Footer container */
+.footer {
+    background-color: #f9f9f9;
+    /* Light background */
+    padding: 50px 0;
+    color: #333;
+    /* Darker text */
+}
+
+/* Container inside the footer */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Flex container for the lists and sections */
+.footer-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Each footer column */
+.footer-column {
+    flex: 1 1 200px;
+    margin-bottom: 20px;
+    min-width: 200px;
+}
+
+/* Footer section headings */
+.footer-heading {
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+/* Footer links */
+.footer-link-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+    color: #000;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    text-align: center;
+    color: #999;
+}
+
+/* Social media icons */
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-social-icon {
+    font-size: 22px;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.footer-social-icon:hover {
+    color: #000;
+}
