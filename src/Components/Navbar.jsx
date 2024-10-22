@@ -1,113 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { IoMdGlobe } from 'react-icons/io';
-import { NavLink } from 'react-router-dom';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import SearchBar from './SearchBar';
-import HorizontalScrollList from './HorizontalScrollList';
-import "../Styles/Navbar.css";
+import React from 'react'
 
-const Navbar = ({ setCategory }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [showSearchBar, setShowSearchBar] = useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
-    const handleScroll = () => {
-        if (window.scrollY > 50) {
-            setShowSearchBar(true);
-        } else {
-            setShowSearchBar(false);
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
+const Navbar = () => {
     return (
-        <header className="navbar-header">
-            <div className="navbar-wrapper">
-                <div className="navbar-inner">
-                    <div className="flex-shrink-0">
-                        <NavLink to="/" className="navbar-logo">
-                            TravelMate
-                        </NavLink>
-                    </div>
-
-                    {showSearchBar ? (
-                        <div className="navbar-searchbar visible">
-                            <p className="searchbar-input">Destination</p>
-                            <p className="searchbar-input">Check-in</p>
-                            <p className="searchbar-input placeholder">Check-out</p>
-                            <AiOutlineSearch className="searchbar-icon" />
-                        </div>
-                    ) : (
-                        <div className="navbar-links visible">
-                            <NavLink to="/destinations" className="nav-link">
-                                Destinations
-                            </NavLink>
-                            <NavLink to="/tours" className="nav-link">
-                                Tours
-                            </NavLink>
-                        </div>
-                    )}
-
-                    {/* Right Side Icons */}
-                    <div className="navbar-right"> 
-                        <button className="right-link">
-                            <IoMdGlobe className="navbar-icon" />
-                        </button>
-                        <div onClick={toggleMenu} className="navbar-icons">
-                            <div className="sm:block hidden">
-                                <GiHamburgerMenu className="navbar-icon" />
-                            </div>
-                            <div className="sm:hidden">
-                                <button onClick={toggleMenu}>
-                                    {isOpen ? <FaTimes className="navbar-icon" /> : <FaBars className="navbar-icon" />}
-                                </button>
-                            </div>
-                            <FaUserCircle className="navbar-profile" />
+        <header style={{ backgroundColor: 'black' }} id="header" >
+            <div className="header-top">
+                <div className="container">
+                    <div className="row justify-content-end">
+                        <div className="col-lg-8 col-sm-4 col-8 header-top-right no-padding">
+                            <ul>
+                                <li>
+                                    Mon-Fri: 8am to 2pm
+                                </li>
+                                <li>
+                                    Sat-Sun: 11am to 4pm
+                                </li>
+                                <li>
+                                    <p>(012) 6985 236 7512</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
-                {/* Mobile Menu */}
-                {isOpen && (
-                    <div className="mobile-menu visible">
-                        <NavLink to="/signup" className="mobile-menu-link">
-                            Sign Up
-                        </NavLink>
-                        <NavLink to="/login" className="mobile-menu-link">
-                            Log In
-                        </NavLink>
-                        <div className="mobile-menu-divider"></div>
-                        <NavLink to="/gift-cards" className="mobile-menu-link">
-                            Gift Cards
-                        </NavLink>
-                        <NavLink to="/host" className="mobile-menu-link">
-                            Become a Host
-                        </NavLink>
-                        <NavLink to="/experiences" className="mobile-menu-link">
-                            Host a Tour
-                        </NavLink>
-                        <NavLink to="/help" className="mobile-menu-link">
-                            Help Center
-                        </NavLink>
-                    </div>
-                )}
             </div>
-
-            <SearchBar />
-            <HorizontalScrollList setCategory={setCategory} />
+            <div className="container">
+                <div className="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                        <a href="/"><img src="img/logo.png" alt="" title="" /></a>
+                    </div>
+                    <nav id="nav-menu-container">
+                        <ul className="nav-menu">
+                            <li className="menu-active"><a href="/">Home</a></li>
+                            <li><a href="/About">About</a></li>
+                            <li><a href="/Coffee">Coffee</a></li>
+                            <li><a href="/Review">Review</a></li>
+                            <li><a href="/Blog">Blog</a></li>
+                            <li className="menu-has-children"><a href="/">Pages</a>
+                                <ul>
+                                    <li><a href="/Generic">Generic</a></li>
+                                    <li><a href="/">Elements</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </header>
-    );
-};
 
-export default Navbar;
+    )
+}
+
+export default Navbar
